@@ -6,10 +6,16 @@ var app = angular.module("myapp",[]);
 		vm.newItem='';
 		vm.selectedIndex='';
 		$scope.imgGallery=[];
+		vm.getItems();
+
+		function getItems() {
+			
+		}
 
 		vm.items = JSON.parse(localStorage.getItem("listData")) ==null ? [] : JSON.parse(localStorage.getItem("listData"));
 		console.log("list data on load :"+vm.items);
-				
+		vm.filterTxt = vm.items.length>0 ? 'Filter item' : 'No Item Available';
+
 		vm.ShowBox =function () {
 			console.log("ShowBox called");
 			$("#addItemBox").show();
@@ -53,6 +59,7 @@ var app = angular.module("myapp",[]);
 		vm.deleteItem =function(index){
 			console.log("delete called"+index);
 			vm.items.splice(index,1);
+			localStorage.setItem("listData",JSON.stringify(vm.items));
 		}
 		
 		vm.updateItem = function(){
