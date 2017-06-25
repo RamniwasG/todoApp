@@ -1,0 +1,16 @@
+{
+  "name": "todoapp",
+  "version": "0.0.1",
+  "description": "complete CRUD operation using AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Praddum@bitbucket.org/Praddum/todoapp.git"
+  },
+  "author": "RamanG",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Praddum/todoapp#readme"
+}

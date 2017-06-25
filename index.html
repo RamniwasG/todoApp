@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Todo App using Angular</title>
+		<!-- node modules -->
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<!-- custom style -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- angular, jquery, bootstrap (.min.js) -->
+	  	<script src="node_modules/angular/angular.min.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	  	<!-- custom script -->
+	  	<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp" ng-controller="todoController as vm">
+			<div class="container">
+				<div class="row jumbotron">
+					<h3 style="text-align: center;">Todo App Using AngularJS</h3>
+					<br><br>
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6">	
+						<input type="text" ng-model="item" class="form-control" placeholder="Filter list.."><br>				
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="item in vm.items | filter : item" ng-click="vm.itemClicked($index)">{{item}}
+							<span style="float: right;">
+								<i style="margin-right: 10px" class="fa fa-edit fa-lg" ng-click="vm.editItem($index)"></i>
+								<i class="fa fa-trash-o fa-lg" ng-click="vm.deleteItem($index)"></i></span>
+							</li>	
+						</ul>
+					</div>
+					<div class="col-sm-3">
+						<b>Library used: </b>
+						<h6>angular.js</h6>
+						<h6>bootstrap.min.js</h6>
+						<h6>bootstrap.min.css</h6>
+						<h6>jquery.min.js</h6>
+					</div>
+					<div class="col-sm-6 col-sm-offset-3">
+						<button id="addItem" style="float: right;" class="btn btn-primary" type="button" ng-click="vm.ShowBox()">Add Item</button>
+						<form class="form-group" id="addItemBox" style="display: none;">
+							<div class="form-group">
+								<label>Entet the new Item</label>
+								<input type="text" class="form-control" ng-model="vm.newItem">
+							</div>
+							<button type="button" id="saveItem" class="btn btn-primary" ng-click="vm.saveItem()">Save</button>
+							<button type="button" id="updateItem" style="display: none" class="btn btn-primary" ng-click="vm.updateItem()">Update</button>
+							<button type="button" class="btn btn-danger" ng-click="vm.CancelBox()">Cancel</button>
+						</form>
+					</div>
+				</div>
+				<center>written and developed by: <b>RamanG</b></center>
+				<center>ramniwas.nitrr15@gmail.com</center>
+			</div>
+		</div>
+	</body>
+</html>
